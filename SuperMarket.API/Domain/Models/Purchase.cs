@@ -11,7 +11,7 @@ namespace SuperMarket.API.Models
         {
         }
 
-        public Purchase(int id, float value, DateTime date, PaymentMethod paymentMethod, PurchaseStatus purchaseStatus, string observation, string zipCode, string address, int userId)
+        public Purchase(int id, float value, DateTime date, EPaymentMethod paymentMethod, EPurchaseStatus purchaseStatus, string observation, string zipCode, string address, int userId)
         {
             Id = id;
             Value = value;
@@ -27,8 +27,8 @@ namespace SuperMarket.API.Models
         public int Id { get; set; }
         public float Value { get; set; }
         public DateTime Date { get; set; }
-        public PaymentMethod PaymentMethod { get; set; }
-        public PurchaseStatus PurchaseStatus { get; set; }
+        public EPaymentMethod PaymentMethod { get; set; }
+        public EPurchaseStatus PurchaseStatus { get; set; }
         public string Observation { get; set; }
         public string ZipCode { get; set; }
         public string Address { get; set; }

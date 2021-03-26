@@ -15,7 +15,7 @@ namespace SuperMarket.API.Controllers
     {
 
         
-        public List<Product> Users = new List<Product>() {
+        public List<Product> Product = new List<Product>() {
 
             new Product()
             {
@@ -49,32 +49,58 @@ namespace SuperMarket.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(Users);
+            return Ok(Product);
         }
 
-        // GET api/<ProductController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("byId")]
+        public IActionResult GetById(int id)
         {
-            return "value";
+            var product = Product.FirstOrDefault(p => p.Id == id);
+            if (product == null)
+            {
+                return BadRequest("O produto não foi encontrado");
+            }
+            return Ok(product);
+        }
+
+        [HttpGet("{name}")]
+        public IActionResult GetByName(string name)
+        {
+            var product = Product.FirstOrDefault(p => p.Name.Contains(name));
+            if (product == null)
+            {
+                return BadRequest("O produto não foi encontrado");
+            }
+            return Ok(product);
         }
 
         // POST api/<ProductController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post(Product product)
         {
+            return Ok(product);
         }
 
         // PUT api/<ProductController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(int id, Product product)
         {
+            return Ok(product);
+        }
+
+        // PATCH api/<UserController>/5
+        [HttpPatch("{id}")]
+        public IActionResult Patch(int id, Product produc)
+        {
+            return Ok(produc);
         }
 
         // DELETE api/<ProductController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            return Ok();
         }
+
     }
 }
