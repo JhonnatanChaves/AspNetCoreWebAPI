@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SuperMarket.API.Domain.Services;
 using SuperMarket.API.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,10 +12,12 @@ namespace SuperMarket.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class ProductController : Controller
     {
+        private readonly IProductService _productService;
 
         
+
         public List<Product> Product = new List<Product>() {
 
             new Product()
@@ -33,7 +36,7 @@ namespace SuperMarket.API.Controllers
             },
               new Product()
             {
-                Id=2,
+                Id=3,
                 Name = "Mini Compressor De Ar Automotivo Portátil 250 Psi - Klatter",
                 Description =  "Este Compressor de Ar compacto oferece praticidade e versatilidade para seu dia a dia, sendo ideal para encher pneus de carros, motos e bicicletas.",
                 Value = 44.99f,
@@ -45,34 +48,43 @@ namespace SuperMarket.API.Controllers
 
         };
 
+        public ProductController(IProductService productService)
+        {
+            _productService = productService;
+            
+        }
+
         // GET: api/<ProductController>
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IEnumerable<Product>> GetAllAsync()
         {
-            return Ok(Product);
+            var products = await _productService.ListAsync();
+            return Product;
         }
+        /*
 
-        [HttpGet("byId")]
-        public IActionResult GetById(int id)
-        {
-            var product = Product.FirstOrDefault(p => p.Id == id);
-            if (product == null)
-            {
-                return BadRequest("O produto não foi encontrado");
-            }
-            return Ok(product);
-        }
+                [HttpGet("byId")]
+                public IActionResult GetById(int id)
+                {
+                    var product = Product.FirstOrDefault(p => p.Id == id);
+                    if (product == null)
+                    {
+                        return BadRequest("O produto não foi encontrado");
+                    }
+                    return Ok(product);
+                }
 
-        [HttpGet("{name}")]
-        public IActionResult GetByName(string name)
-        {
-            var product = Product.FirstOrDefault(p => p.Name.Contains(name));
-            if (product == null)
-            {
-                return BadRequest("O produto não foi encontrado");
-            }
-            return Ok(product);
-        }
+                [HttpGet("{name}")]
+                public IActionResult GetByName(string name)
+                {
+                    var product = Product.FirstOrDefault(p => p.Name.Contains(name));
+                    if (product == null)
+                    {
+                        return BadRequest("O produto não foi encontrado");
+                    }
+                    return Ok(product);
+                }
+         */
 
         // POST api/<ProductController>
         [HttpPost]

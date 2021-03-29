@@ -6,14 +6,10 @@ using SuperMarket.API.Models;
 
 namespace SuperMarket.API.Domain.Repository
 {
-    interface IProductRepository
-    {
         public interface IProductRepository
         {
             Task<IEnumerable<Product>> ListAsync();
 
         }
-
-        Task<IEnumerable<Product>> ListAsync();
-    }
+    
 }

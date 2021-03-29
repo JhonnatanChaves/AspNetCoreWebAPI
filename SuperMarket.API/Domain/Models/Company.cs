@@ -7,17 +7,6 @@ namespace SuperMarket.API.Models
 {
     public class Company
     {
-        public Company()
-        {
-        }
-
-        public Company(int id, string fancyName, string socialReason, string cnpj)
-        {
-            Id = id;
-            FancyName = fancyName;
-            SocialReason = socialReason;
-            Cnpj = cnpj;
-        }
 
         public int Id { get; set; }
         public string FancyName { get; set; }
@@ -25,9 +14,20 @@ namespace SuperMarket.API.Models
         public string Cnpj { get; set; }
 
         public IEnumerable<Product> Products { get; set; }
-        
 
 
+        /*    
+            public Company()
+            {
+            }
 
+            public Company(int id, string fancyName, string socialReason, string cnpj)
+            {
+                Id = id;
+                FancyName = fancyName;
+                SocialReason = socialReason;
+                Cnpj = cnpj;
+            }
+        */
     }
 }

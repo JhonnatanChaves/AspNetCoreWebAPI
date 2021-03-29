@@ -23,3 +23,5 @@ C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode
 C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\C#\SuperMarket\SuperMarket.API\obj\Debug\netcoreapp3.1\SuperMarket.API.csproj.CopyComplete
+C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll

@@ -7,6 +7,8 @@ namespace SuperMarket.API.Models
 {
     public class Product
     {
+
+        /*
         public Product()
         {
         }
@@ -19,6 +21,7 @@ namespace SuperMarket.API.Models
             Value = value;
             Observation = observation;
         }
+        */
 
         public int Id { get; set; }
         public string Name { get; set; }

@@ -12,7 +12,7 @@ namespace SuperMarket.API.Domain.Services
 
         private readonly IProductRepository _productRepository;
 
-         ProductService(IProductRepository productRepository)
+        public ProductService(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }
