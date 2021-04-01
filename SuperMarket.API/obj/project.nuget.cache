@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "VRGK3K9EYCoReiHp95MByohvPjfy/7BLQ63aleA5pHcq/5e++Te/Nz15up34NRM5orL6g5S67VaAmDt6/ftatw==",
+  "dgSpecHash": "mFgzQwITdyHwu//WKDiswbbM0QBYJk5tv8DnK1+/0vRLDHtpjkdm4VHXPrhE9VM2iRbjcD++XxftcptQZJ3ZtQ==",
   "success": true,
   "projectFilePath": "C:\\C#\\SuperMarket\\SuperMarket.API\\SuperMarket.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Alimpio Britto\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\Alimpio Britto\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\6.0.0\\automapper.extensions.microsoft.dependencyinjection.6.0.0.nupkg.sha512",
     "C:\\Users\\Alimpio Britto\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\Alimpio Britto\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\Alimpio Britto\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
@@ -11,6 +13,7 @@
     "C:\\Users\\Alimpio Britto\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\3.1.0\\microsoft.entityframeworkcore.abstractions.3.1.0.nupkg.sha512",
     "C:\\Users\\Alimpio Britto\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\3.1.0\\microsoft.entityframeworkcore.analyzers.3.1.0.nupkg.sha512",
     "C:\\Users\\Alimpio Britto\\.nuget\\packages\\microsoft.entityframeworkcore.design\\3.1.0\\microsoft.entityframeworkcore.design.3.1.0.nupkg.sha512",
+    "C:\\Users\\Alimpio Britto\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\3.1.0\\microsoft.entityframeworkcore.inmemory.3.1.0.nupkg.sha512",
     "C:\\Users\\Alimpio Britto\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.0\\microsoft.entityframeworkcore.relational.3.1.0.nupkg.sha512",
     "C:\\Users\\Alimpio Britto\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\3.1.0\\microsoft.entityframeworkcore.tools.3.1.0.nupkg.sha512",
     "C:\\Users\\Alimpio Britto\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.0\\microsoft.extensions.caching.abstractions.3.1.0.nupkg.sha512",
@@ -26,7 +29,8 @@
     "C:\\Users\\Alimpio Britto\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.0\\microsoft.extensions.primitives.3.1.0.nupkg.sha512",
     "C:\\Users\\Alimpio Britto\\.nuget\\packages\\system.collections.immutable\\1.7.0\\system.collections.immutable.1.7.0.nupkg.sha512",
     "C:\\Users\\Alimpio Britto\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
-    "C:\\Users\\Alimpio Britto\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.0\\system.diagnostics.diagnosticsource.4.7.0.nupkg.sha512"
+    "C:\\Users\\Alimpio Britto\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.0\\system.diagnostics.diagnosticsource.4.7.0.nupkg.sha512",
+    "C:\\Users\\Alimpio Britto\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

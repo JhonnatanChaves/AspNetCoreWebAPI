@@ -6,9 +6,9 @@ using SuperMarket.API.Models;
 
 namespace SuperMarket.API.Domain.Services
 {
-        public interface IProductService
+        public interface ICompanyService
         {
-            Task<IEnumerable<Product>> ListAsync();
+            Task<IEnumerable<Company>> ListAsync();
          }
     
 }

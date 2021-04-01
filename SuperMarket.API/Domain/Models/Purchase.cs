@@ -24,25 +24,6 @@ namespace SuperMarket.API.Models
         public User User { get; set; }
 
 
-      
-        /*
-        public Purchase()
-        {
-        }
-
-        public Purchase(int id, float value, DateTime date, EPaymentMethod paymentMethod, EPurchaseStatus purchaseStatus, string observation, string zipCode, string address, int userId)
-        {
-            Id = id;
-            Value = value;
-            Date = date;
-            PaymentMethod = paymentMethod;
-            PurchaseStatus = purchaseStatus;
-            Observation = observation;
-            ZipCode = zipCode;
-            Address = address;
-            UserId = userId;
-        }
-        */
     }
    
 }

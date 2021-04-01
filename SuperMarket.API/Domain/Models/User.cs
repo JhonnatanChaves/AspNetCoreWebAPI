@@ -13,24 +13,7 @@ namespace SuperMarket.API.Models
         public string Password { get; set; }
         public string Cpf { get; set; }
 
-        public IEnumerable<Purchase> Purchases { get; set; }
-
-        /*
-        public User()
-        {
-
-        }
-
-        public User(int id, string name, string email, string password, string cpf)
-        {
-            Id = id;
-            Name = name;
-            Email = email;
-            Password = password;
-            Cpf = cpf;
-        }
-        */
-
+        public IList<Purchase> Purchases { get; set; } = new List<Purchase>();
 
     }
 

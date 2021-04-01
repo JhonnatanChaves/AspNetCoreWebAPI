@@ -27,7 +27,8 @@ namespace SuperMarket.API.Data
             builder.Entity<User>().Property(p => p.Cpf).IsRequired().HasMaxLength(14);
             builder.Entity<User>().Property(p => p.Email).IsRequired();
             builder.Entity<User>().Property(p => p.Password).IsRequired().HasMaxLength(8);
-            builder.Entity<User>().Property(p => p.Purchases);
+            builder.Entity<User>().HasMany(p => p.Purchases).WithOne(p => p.User)
+                                                          .HasForeignKey(p => p.UserId);
 
 
             builder.Entity<User>().HasData
@@ -43,11 +44,14 @@ namespace SuperMarket.API.Data
             builder.Entity<Company>().Property(p => p.SocialReason);
             builder.Entity<Company>().Property(p => p.Cnpj).IsRequired().HasMaxLength(18);
 
+            builder.Entity<Company>().HasMany(p => p.Products).WithOne(p => p.Company)
+              .HasForeignKey(p => p.CompanyId);
+          
+
             builder.Entity<Company>().HasData
-            (
-                
-             new Company { Id = 1, FancyName = "Depósito Jaguatirica", Cnpj = "12.785.496/0001-23" },
-             new Company { Id = 2, FancyName = "Armazém Central de Anápolis ", Cnpj = "07.663.123/0001-78" }
+            (  
+               new Company { Id = 1, FancyName = "Depósito Jaguatirica", Cnpj = "12.785.496/0001-23" },
+               new Company { Id = 2, FancyName = "Armazém Central de Anápolis ", Cnpj = "07.663.123/0001-78" }
             );
 
             builder.Entity<Product>().HasKey(p => p.Id);
@@ -56,13 +60,30 @@ namespace SuperMarket.API.Data
             builder.Entity<Product>().Property(p => p.Description).IsRequired();
             builder.Entity<Product>().Property(p => p.Value).IsRequired();
             builder.Entity<Product>().Property(p => p.Observation);
-            builder.Entity<Product>().Property(p => p.Purchases);
 
-            builder.Entity<Company>()
-                .HasMany(p => p.Products)
-                .WithOne(p => p.Company)
-                .HasForeignKey(p => p.CompanyId);
+            builder.Entity<Product>().HasData
+             (
+                 new Product
+                 {
+                     Id = 1,
+                     Name = "Mini Compressor",
+                     Description = "Mini Compressor Ar 300psi 12v P/ Pneu Carro Moto Bicicleta",
+                     Value=59,
+                     Observation= "ideal para proporcionar maior praticidade dia - a - dia!, Purchases",
+                     Purchases=null
+                 }                 
+             );
 
+
+            builder.Entity<Purchase>().HasKey(p => p.Id);
+            builder.Entity<Purchase>().Property(p => p.Id).IsRequired();
+            builder.Entity<Purchase>().Property(p => p.Value);
+            builder.Entity<Purchase>().Property(p => p.Date);
+            builder.Entity<Purchase>().Property(p => p.PaymentMethod);
+            builder.Entity<Purchase>().Property(p => p.PurchaseStatus);
+            builder.Entity<Purchase>().Property(p => p.Observation);
+            builder.Entity<Purchase>().Property(p => p.ZipCode);
+            builder.Entity<Purchase>().Property(p => p.Address);
 
 
 

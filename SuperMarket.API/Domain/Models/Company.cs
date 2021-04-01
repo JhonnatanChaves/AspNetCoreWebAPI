@@ -13,21 +13,7 @@ namespace SuperMarket.API.Models
         public string SocialReason { get; set; }
         public string Cnpj { get; set; }
 
-        public IEnumerable<Product> Products { get; set; }
+        public IList<Product> Products { get; set; } = new List<Product>();
 
-
-        /*    
-            public Company()
-            {
-            }
-
-            public Company(int id, string fancyName, string socialReason, string cnpj)
-            {
-                Id = id;
-                FancyName = fancyName;
-                SocialReason = socialReason;
-                Cnpj = cnpj;
-            }
-        */
     }
 }
