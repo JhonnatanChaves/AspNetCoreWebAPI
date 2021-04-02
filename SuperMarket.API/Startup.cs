@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SuperMarket.API.Data;
+using SuperMarket.API.Domain.Repositories;
 using SuperMarket.API.Domain.Repository;
 using SuperMarket.API.Domain.Services;
 using SuperMarket.API.Persistence.Repositories;
@@ -38,6 +39,7 @@ namespace SuperMarket.API
 
             services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddScoped<ICompanyService, CompanyService>();
+            services.AddScoped<IUnitOfWork,UnitOfWork>();
 
             services.AddAutoMapper();
 

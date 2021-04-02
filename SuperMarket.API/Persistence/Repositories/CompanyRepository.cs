@@ -14,10 +14,14 @@ namespace SuperMarket.API.Persistence.Repositories
         public CompanyRepository(SuperMarketContext context) : base(context)
         {
         }
-
         public async Task<IEnumerable<Company>> ListAsync()
         {
             return await _context.Companies.ToListAsync();
         }
+        public async Task AddAsync(Company company)
+        {
+            await _context.Companies.AddAsync(company);
+        }
+
     }
 }
