@@ -8,6 +8,7 @@ namespace SuperMarket.API.Resource
 {
     public class SaveCompanyResource
     {
+        
         [Required]
         [MaxLength]
 

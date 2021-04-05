@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SuperMarket.API.Domain.Communication;
 using SuperMarket.API.Models;
 
 namespace SuperMarket.API.Domain.Repository
@@ -10,6 +11,12 @@ namespace SuperMarket.API.Domain.Repository
         {
             Task<IEnumerable<Company>> ListAsync();
             Task AddAsync(Company company);
-        }
+            Task<Company> FindByIdAsync(int id);
+            void Update(Company company);
+            void Remove(Company company);
+
+
+
+    }
     
 }
