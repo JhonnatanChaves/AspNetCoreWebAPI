@@ -23,7 +23,7 @@ namespace SuperMarket.API.Data
 
             builder.Entity<User>().HasKey(p => p.Id);
             builder.Entity<User>().Property(p => p.Id).IsRequired();
-            builder.Entity<User>().Property(p => p.Name).IsRequired();            
+            builder.Entity<User>().Property(p => p.Name).IsRequired().HasMaxLength(50);            
             builder.Entity<User>().Property(p => p.Cpf).IsRequired().HasMaxLength(14);
             builder.Entity<User>().Property(p => p.Email).IsRequired();
             builder.Entity<User>().Property(p => p.Password).IsRequired().HasMaxLength(8);
@@ -40,7 +40,7 @@ namespace SuperMarket.API.Data
 
             builder.Entity<Company>().HasKey(p => p.Id);
             builder.Entity<Company>().Property(p => p.Id).IsRequired();
-            builder.Entity<Company>().Property(p => p.FancyName).IsRequired();
+            builder.Entity<Company>().Property(p => p.FancyName).IsRequired().HasMaxLength(50);
             builder.Entity<Company>().Property(p => p.SocialReason);
             builder.Entity<Company>().Property(p => p.Cnpj).IsRequired().HasMaxLength(18);
 
@@ -69,8 +69,9 @@ namespace SuperMarket.API.Data
                      Name = "Mini Compressor",
                      Description = "Mini Compressor Ar 300psi 12v P/ Pneu Carro Moto Bicicleta",
                      Value=59,
-                     Observation= "ideal para proporcionar maior praticidade dia - a - dia!, Purchases",
-                     Purchases=null
+                     Observation= "ideal para proporcionar maior praticidade dia - a - dia!",
+                     //Purchases=null,
+                     CompanyId=1
                  }                 
              );
 
@@ -84,8 +85,6 @@ namespace SuperMarket.API.Data
             builder.Entity<Purchase>().Property(p => p.Observation);
             builder.Entity<Purchase>().Property(p => p.ZipCode);
             builder.Entity<Purchase>().Property(p => p.Address);
-
-
 
         }
 

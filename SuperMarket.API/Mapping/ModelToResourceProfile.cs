@@ -13,6 +13,7 @@ namespace SuperMarket.API.Mapping
         public ModelToResourceProfile()
         {
             CreateMap<Company, CompanyResource>();
+            CreateMap<Product, ProductResource>();
         }
     }
 }

@@ -11,9 +11,9 @@ namespace SuperMarket.API.Domain.Communication
 
         public string Message { get; protected set; }
 
-        public BaseResponse(bool sucess, string message)
+        public BaseResponse(bool success, string message)
         {
-            Sucess = sucess;
+            Sucess = success;
             Message = message;
         }
     }

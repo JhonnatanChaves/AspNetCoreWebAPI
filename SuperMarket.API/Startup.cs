@@ -16,6 +16,7 @@ using SuperMarket.API.Domain.Repositories;
 using SuperMarket.API.Domain.Repository;
 using SuperMarket.API.Domain.Services;
 using SuperMarket.API.Persistence.Repositories;
+using SuperMarket.API.Services;
 
 namespace SuperMarket.API
 {
@@ -40,6 +41,11 @@ namespace SuperMarket.API
             services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddScoped<ICompanyService, CompanyService>();
             services.AddScoped<IUnitOfWork,UnitOfWork>();
+
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductService, ProductService>();
+
+
 
             services.AddAutoMapper();
 
