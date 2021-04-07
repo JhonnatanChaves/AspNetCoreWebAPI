@@ -70,7 +70,7 @@ namespace SuperMarket.API.Data
                      Description = "Mini Compressor Ar 300psi 12v P/ Pneu Carro Moto Bicicleta",
                      Value=59,
                      Observation= "ideal para proporcionar maior praticidade dia - a - dia!",
-                     //Purchases=null,
+                     Purchases=null,
                      CompanyId=1
                  }                 
              );

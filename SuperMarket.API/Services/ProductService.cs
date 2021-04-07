@@ -20,7 +20,6 @@ namespace SuperMarket.API.Services
             _productRepository = productRepository;
             _unitOfWork = unitOfWork;
         }
-
         public async Task<IEnumerable<Product>> ListAsync()
         {
             return await _productRepository.ListAsync();
@@ -40,5 +39,59 @@ namespace SuperMarket.API.Services
                 return new ProductResponse($"An error occurred when saving the product: {ex.Message}");
             }
         }
+
+        public async Task<ProductResponse> UpdateAsync(int id, Product product)
+        {
+            var existingProduct = await _productRepository.FindByIdAsync(id);
+
+            if (existingProduct == null)
+                return new ProductResponse("Product not found");
+
+            existingProduct.Name = product.Name;
+            existingProduct.Description = product.Description;
+            existingProduct.Value = product.Value;
+            existingProduct.Observation = product.Observation;
+           
+
+            try
+            {
+                _productRepository.Update(existingProduct);
+                await _unitOfWork.CompleteAsync();
+
+                return new ProductResponse(existingProduct);
+            }
+            catch (Exception ex)
+            {
+                return new ProductResponse($"An error ocurred when updating the product: {ex.Message }");
+            }
+
+
+
+        }
+
+        public async Task<ProductResponse> DeleteAsync(int id)
+        {
+
+            var existingProduct = await _productRepository.FindByIdAsync(id);
+
+            if (existingProduct == null)
+                return new ProductResponse("Product not found");
+
+            try
+            {
+                _productRepository.Remove(existingProduct);
+                await _unitOfWork.CompleteAsync();
+
+                return new ProductResponse(existingProduct);
+
+            }
+            catch (Exception ex)
+            {
+                return new ProductResponse($"An error ocurred when deleting the product : {ex.Message}");
+            }
+
+
+        }
+
     }
 }

@@ -10,5 +10,8 @@ namespace SuperMarket.API.Domain.Repositories
     {
         Task<IEnumerable<Product>> ListAsync();
         Task AddAsync(Product product);
+        Task<Product> FindByIdAsync(int id);
+        void Update(Product product);
+        void Remove(Product product);
     }
 }
