@@ -14,6 +14,6 @@ namespace SuperMarket.API.Domain.Services
             Task<CompanyResponse> UpdateAsync(int id,Company company);
             Task<CompanyResponse> DeleteAsync(int id);
 
-    }
+        }
     
 }
