@@ -14,9 +14,15 @@ namespace SuperMarket.API.Persistence.Repositories
         public UserRepository(SuperMarketContext context) : base(context)
         {
         }
+
+
         public async Task<IEnumerable<User>> ListAsync()
         {
             return await _context.Users.ToListAsync();
+        }
+        public async Task AddAsync(User user)
+        {
+            await _context.Users.AddAsync(user);
         }
     
     }

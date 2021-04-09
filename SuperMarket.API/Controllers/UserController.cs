@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SuperMarket.API.Domain.Services;
+using SuperMarket.API.Extensions;
 using SuperMarket.API.Models;
 using SuperMarket.API.Resource;
 
@@ -36,28 +37,41 @@ namespace SuperMarket.API.Controllers
 
         }
 
-        // GET api/<UserController>/5
+       
 
-        /*
-                // POST api/<UserController>
-                [HttpPost]
-                public void Post([FromBody] string value)
-                {
-                }
+        
+        // POST api/<UserController>
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] SaveUserResource resource)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
 
-                // PUT api/<UserController>/5
-                [HttpPut("{id}")]
-                public void Put(int id, [FromBody] string value)
-                {
-                }
+            var user = _mapper.Map<SaveUserResource, User>(resource);
+            var result = await _userService.SaveAsync(user);
 
-                // DELETE api/<UserController>/5
-                [HttpDelete("{id}")]
-                public void Delete(int id)
-                {
-                }
+            if (!result.Sucess)
+                return BadRequest(result.Message);
 
-        */
+            var userResource = _mapper.Map<User, UserResource>(result.User);
+
+            return Ok(userResource);
+        }
+
+/*
+        // PUT api/<UserController>/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] string value)
+        {
+        }
+
+        // DELETE api/<UserController>/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+        }
+
+*/
 
     }
 }

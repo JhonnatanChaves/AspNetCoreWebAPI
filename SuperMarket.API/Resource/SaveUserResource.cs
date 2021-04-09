@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace SuperMarket.API.Resource
 {
-    public class CompanyResource
+    public class SaveUserResource
     {
         public int Id { get; set; }
+
         [Required]
-        public string FancyName { get; set; }
+        public string Name { get; set; }
+        [Required]
+        public string Email { get; set; }
     }
 }
