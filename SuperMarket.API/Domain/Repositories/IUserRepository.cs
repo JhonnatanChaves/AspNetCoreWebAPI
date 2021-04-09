@@ -11,7 +11,8 @@ namespace SuperMarket.API.Domain.Repositories
     {
         Task<IEnumerable<User>> ListAsync();
         Task AddAsync(User user);
-
+        Task<User> FindByIdAsync(int id);
+        void Update(User user);
 
     }
 }

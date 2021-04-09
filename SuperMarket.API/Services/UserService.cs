@@ -42,6 +42,28 @@ namespace SuperMarket.API.Services
             }
         }
 
-   
+        public async Task<UserResponse> UpdateAsync(int id, User user)
+        {
+            var existingUser = await _userRepository.FindByIdAsync(id);
+
+            if (existingUser == null)
+                return new UserResponse("User not found");
+
+            existingUser.Name = user.Name;
+            existingUser.Email = user.Email;
+            existingUser.Cpf = user.Cpf;
+
+            try
+            {
+                _userRepository.Update(existingUser);
+                await _unitOfWork.CompleteAsync();
+
+                return new UserResponse(existingUser);
+            }
+            catch (Exception ex)
+            {
+                return new UserResponse($"An error ocurred when updating the user: {ex.Message }");
+            }
+        }
     }
 }

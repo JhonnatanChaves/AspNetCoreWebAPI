@@ -58,13 +58,23 @@ namespace SuperMarket.API.Controllers
             return Ok(userResource);
         }
 
-/*
+
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> Put(int id, [FromBody] SaveUserResource resource)
         {
-        }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+            var user = _mapper.Map<SaveUserResource, User>(resource);
+            var result = await _userService.UpdateAsync(id, user);
 
+            if (!result.Sucess)
+                return BadRequest(result.Message);
+
+            var userResource = _mapper.Map<User, UserResource>(result.User);
+            return Ok(userResource);
+        }
+/*
         // DELETE api/<UserController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
