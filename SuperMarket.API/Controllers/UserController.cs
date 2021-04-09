@@ -37,9 +37,6 @@ namespace SuperMarket.API.Controllers
 
         }
 
-       
-
-        
         // POST api/<UserController>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] SaveUserResource resource)
@@ -58,7 +55,6 @@ namespace SuperMarket.API.Controllers
             return Ok(userResource);
         }
 
-
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] SaveUserResource resource)
@@ -74,14 +70,21 @@ namespace SuperMarket.API.Controllers
             var userResource = _mapper.Map<User, UserResource>(result.User);
             return Ok(userResource);
         }
-/*
+
         // DELETE api/<UserController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            var result = await _userService.DeleteAsync(id);
+
+            if (!result.Sucess)
+                return BadRequest(result.Message);
+            var userResource = _mapper.Map<User, UserResource>(result.User);
+            return Ok(userResource);
+
         }
 
-*/
+
 
     }
 }

@@ -65,5 +65,26 @@ namespace SuperMarket.API.Services
                 return new UserResponse($"An error ocurred when updating the user: {ex.Message }");
             }
         }
+        public async Task<UserResponse> DeleteAsync(int id)
+        {
+            var existingUser = await _userRepository.FindByIdAsync(id);
+
+            if (existingUser == null)
+                return new UserResponse("User not found");
+
+            try
+            {
+                _userRepository.Remove(existingUser);
+                await _unitOfWork.CompleteAsync();
+
+                return new UserResponse(existingUser);
+
+            }
+            catch (Exception ex)
+            {
+                return new UserResponse($"An error ocurred when deleting the user : {ex.Message}");
+            }
+
+        }
     }
 }
