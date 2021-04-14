@@ -49,6 +49,22 @@ namespace SuperMarket.API.Controllers
             return Ok(companyResource);
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutAsync(int id, [FromBody] SavePurchaseResource resource)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+            var purchase = _mapper.Map<SavePurchaseResource, Purchase>(resource);
+            var result = await _purchaseService.UpdateAsync(id, purchase);
+
+            if (!result.Sucess)
+                return BadRequest(result.Message);
+
+            var purchaseResource = _mapper.Map<Purchase, PurchaseResource>(result.Purchase);
+            return Ok(purchaseResource);
+        }
+
+
 
     }
 }

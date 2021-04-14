@@ -13,6 +13,8 @@ namespace SuperMarket.API.Resource
         public float Value { get; set; }
         public DateTime Date { get; set; } = DateTime.UtcNow;
         public string Observation { get; set; }
+        public string ZipCode { get; set; }
+        public string Address { get; set; }
         [Required]
         public int ProductId { get; set; }
         [Required]
