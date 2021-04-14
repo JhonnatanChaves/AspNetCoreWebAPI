@@ -26,7 +26,6 @@ namespace SuperMarket.API.Controllers
             
         }
 
-        // GET: api/<CompanyController>
         [HttpGet]
         public async Task<IEnumerable<CompanyResource>> GetAllAsync()
         {

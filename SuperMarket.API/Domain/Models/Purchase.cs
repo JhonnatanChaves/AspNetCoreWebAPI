@@ -10,7 +10,7 @@ namespace SuperMarket.API.Models
 
         public int Id { get; set; }
         public float Value { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } = DateTime.UtcNow;
         public EPaymentMethod PaymentMethod { get; set; }
         public EPurchaseStatus PurchaseStatus { get; set; }
         public string Observation { get; set; }

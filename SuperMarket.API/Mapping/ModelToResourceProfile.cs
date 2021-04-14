@@ -15,6 +15,8 @@ namespace SuperMarket.API.Mapping
             CreateMap<Company, CompanyResource>();
             CreateMap<Product, ProductResource>();
             CreateMap<User, UserResource>();
+            CreateMap<Purchase, PurchaseResource>();
+
 
         }
     }

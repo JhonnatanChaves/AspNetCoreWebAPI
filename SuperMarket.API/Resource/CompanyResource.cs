@@ -11,5 +11,8 @@ namespace SuperMarket.API.Resource
         public int Id { get; set; }
         [Required]
         public string FancyName { get; set; }
+       
+        [Required]
+        public string Observation { get; set; }
     }
 }

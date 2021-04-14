@@ -48,6 +48,8 @@ namespace SuperMarket.API
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
 
+            services.AddScoped<IPurchaseRepository, PurchaseRepository>();
+            services.AddScoped<IPurchaseService, PurchaseService>();
 
             services.AddAutoMapper();
 

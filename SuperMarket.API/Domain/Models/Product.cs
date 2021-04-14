@@ -14,7 +14,6 @@ namespace SuperMarket.API.Models
         public float Value { get; set; }
         public string Observation { get; set; }
         public IList<Purchase> Purchases { get; set; } = new List<Purchase>();
-
         public int CompanyId { get; set; }
         public Company Company { get; set; }
 

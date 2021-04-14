@@ -45,7 +45,7 @@ namespace SuperMarket.API.Data
             builder.Entity<Company>().Property(p => p.Cnpj).IsRequired().HasMaxLength(18);
 
             builder.Entity<Company>().HasMany(p => p.Products).WithOne(p => p.Company)
-              .HasForeignKey(p => p.CompanyId);
+                                                              .HasForeignKey(p => p.CompanyId);
           
 
             builder.Entity<Company>().HasData
@@ -61,6 +61,9 @@ namespace SuperMarket.API.Data
             builder.Entity<Product>().Property(p => p.Value).IsRequired();
             builder.Entity<Product>().Property(p => p.Observation);
 
+            builder.Entity<Product>().HasMany(p => p.Purchases).WithOne(p => p.Product)
+                                                               .HasForeignKey(p => p.ProductId);
+
             builder.Entity<Product>().HasData
              (
                  new Product
@@ -68,10 +71,10 @@ namespace SuperMarket.API.Data
                      Id = 1,
                      Name = "Mini Compressor",
                      Description = "Mini Compressor Ar 300psi 12v P/ Pneu Carro Moto Bicicleta",
-                     Value=59,
+                     Value= 59,
                      Observation= "ideal para proporcionar maior praticidade dia - a - dia!",
-                     Purchases=null,
                      CompanyId=1
+
                  }                 
              );
 
@@ -86,9 +89,24 @@ namespace SuperMarket.API.Data
             builder.Entity<Purchase>().Property(p => p.ZipCode);
             builder.Entity<Purchase>().Property(p => p.Address);
 
+            builder.Entity<Purchase>().HasData
+            (
+                new Purchase
+                {
+                    Id = 1,
+                    Value = 45,
+                    Date = DateTime.Now,
+                    Observation = "Pago em 2 vezes",
+                    ZipCode = "4210000",
+                    Address = "Rua Brigadeiro Jordão, Ipiranga, São Paulo/SP",
+                    ProductId = 1,
+                    UserId = 2
+
+                }
+
+            );
+
         }
-
-
 
     }
 }
