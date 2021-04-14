@@ -12,5 +12,7 @@ namespace SuperMarket.API.Domain.Repositories
         Task AddAsync(Purchase purchase);
         Task<Purchase> FindByIdAsync(int id);
         void Update(Purchase purchase);
+        void Remove(Purchase purchase);
+
     }
 }

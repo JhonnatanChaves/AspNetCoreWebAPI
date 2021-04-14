@@ -64,5 +64,26 @@ namespace SuperMarket.API.Services
                 return new PurchaseResponse($"An error ocurred when updating the purchase: {ex.Message }");
             }
         }
+
+        public async Task<PurchaseResponse> DeleteAsync(int id)
+        {
+            var existingPurchase = await _purchaseRepository.FindByIdAsync(id);
+
+            if (existingPurchase == null)
+                return new PurchaseResponse("Purchase not found");
+
+            try
+            {
+                _purchaseRepository.Remove(existingPurchase);
+                await _unitOfWork.CompleteAsync();
+
+                return new PurchaseResponse(existingPurchase);
+
+            }
+            catch (Exception ex)
+            {
+                return new PurchaseResponse($"An error ocurred when deleting the purchase : {ex.Message}");
+            }
+        }
     }
 }

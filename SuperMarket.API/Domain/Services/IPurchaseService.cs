@@ -12,5 +12,6 @@ namespace SuperMarket.API.Services
         Task<IEnumerable<Purchase>> ListAsync();
         Task<PurchaseResponse> SaveAsync(Purchase purchase);
         Task<PurchaseResponse> UpdateAsync(int id, Purchase purchase);
+        Task<PurchaseResponse> DeleteAsync(int id);
     }
 }
