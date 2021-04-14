@@ -15,10 +15,16 @@ namespace SuperMarket.API.Persistence.Repositories
         {
         }
 
+
         public async Task<IEnumerable<Purchase>> ListAsync()
         {
             return await _context.Purchases.ToListAsync();
         }
+        public async Task AddAsync(Purchase purchase)
+        {
+            await _context.Purchases.AddAsync(purchase);
+        }
+
 
     }
 }

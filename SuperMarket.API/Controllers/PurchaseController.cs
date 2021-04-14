@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SuperMarket.API.Extensions;
 using SuperMarket.API.Models;
 using SuperMarket.API.Resource;
 using SuperMarket.API.Services;
@@ -30,6 +31,24 @@ namespace SuperMarket.API.Controllers
             var resources = _mapper.Map<IEnumerable<Purchase>, IEnumerable<PurchaseResource>>(purchase);
             return resources;
         }
+
+        [HttpPost]
+        public async Task<IActionResult> PostAsync([FromBody] SavePurchaseResource resource)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+
+            var purchase = _mapper.Map<SavePurchaseResource, Purchase>(resource);
+            var result = await _purchaseService.SaveAsync(purchase);
+
+            if (!result.Sucess)
+                return BadRequest(result.Message);
+
+            var companyResource = _mapper.Map<Purchase, PurchaseResource>(result.Purchase);
+
+            return Ok(companyResource);
+        }
+
 
     }
 }

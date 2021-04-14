@@ -9,5 +9,6 @@ namespace SuperMarket.API.Domain.Repositories
     public interface IPurchaseRepository
     {
         Task<IEnumerable<Purchase>> ListAsync();
+        Task AddAsync(Purchase purchase);
     }
 }

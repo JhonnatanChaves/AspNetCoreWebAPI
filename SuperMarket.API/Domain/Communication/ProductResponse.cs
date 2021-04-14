@@ -18,7 +18,7 @@ namespace SuperMarket.API.Domain.Communication
         /// <summary>
         /// Creates a success response.
         /// </summary>
-        /// <param name="product">Saved category.</param>
+        /// <param name="product">Saved product.</param>
         /// <returns>Response.</returns>
         public ProductResponse(Product product) : this(true, string.Empty, product)
         { }

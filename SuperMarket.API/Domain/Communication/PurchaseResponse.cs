@@ -6,26 +6,26 @@ using SuperMarket.API.Models;
 
 namespace SuperMarket.API.Domain.Communication
 {
-    public class UserResponse : BaseResponse
+    public class PurchaseResponse : BaseResponse
     {
-        public User User { get; private set; }
-        private UserResponse(bool sucess, string message, User user) : base(sucess, message)
+        public Purchase Purchase { get; private set; }
+        private PurchaseResponse(bool sucess, string message, Purchase purchase) : base(sucess, message)
         {
-            User = user;
+            Purchase = purchase;
         }
 
         /// <summary>
         /// Creates a sucess response.
         /// </summary>
-        /// <param name="user">Saved user.</param>
+        /// <param name="purchase">Saved purchase.</param>
         /// <returns>Response.</returns>
-        public UserResponse(User user) : this(true, string.Empty, user) { }
+        public PurchaseResponse(Purchase purchase) : this(true, string.Empty, purchase) { }
 
         /// <summary>
         /// Creates a sucess response.
         /// </summary>
         /// <param name="message">Error message. </param>
         /// <returns>Response.</returns>
-        public UserResponse(string message) : this(false, message, null) { }
+        public PurchaseResponse(string message) : this(false, message, null) { }
     }
 }
