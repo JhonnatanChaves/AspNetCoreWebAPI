@@ -26,7 +26,7 @@ namespace SuperMarket.API.Data
             builder.Entity<User>().Property(p => p.Name).IsRequired().HasMaxLength(50);            
             builder.Entity<User>().Property(p => p.Cpf).IsRequired().HasMaxLength(14);
             builder.Entity<User>().Property(p => p.Email).IsRequired();
-            builder.Entity<User>().Property(p => p.Password).IsRequired().HasMaxLength(8);
+            builder.Entity<User>().Property(p => p.Password).IsRequired();
             builder.Entity<User>().HasMany(p => p.Purchases).WithOne(p => p.User)
                                                           .HasForeignKey(p => p.UserId);
 

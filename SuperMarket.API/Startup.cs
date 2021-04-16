@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using SuperMarket.API.Data;
 using SuperMarket.API.Domain.Repositories;
 using SuperMarket.API.Domain.Repository;
@@ -22,14 +25,17 @@ namespace SuperMarket.API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public IConfiguration Configuration { get; }
+        public Startup(IConfiguration configuration)   
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+            .AddJsonFile($"appsettings.json", optional: false, reloadOnChange: true)
+            .AddEnvironmentVariables();
+
+            this.Configuration = builder.Build();
         }
 
-        public IConfiguration Configuration { get; }
-
-        public void ConfigureServices(IServiceCollection services)
+         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
 
@@ -53,7 +59,35 @@ namespace SuperMarket.API
 
             services.AddAutoMapper();
 
-        }
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(
+               opt =>
+               {
+                   var s = Encoding.UTF8.GetBytes(Configuration["SecurityKey"]);
+                   opt.TokenValidationParameters = new TokenValidationParameters
+                   {
+                       ValidateIssuer = true,
+                       ValidateAudience = true,
+                       ValidateLifetime = true,
+                       ValidateIssuerSigningKey = true,
+                       ValidIssuer = Configuration["Issuer"],
+                       ValidAudience = Configuration["Audience"],
+                       IssuerSigningKey = new SymmetricSecurityKey(s)
+                   };
+
+                   opt.Events = new JwtBearerEvents
+                   {
+                       OnAuthenticationFailed = context =>
+                       {
+                           return Task.CompletedTask;
+                       },
+                       OnTokenValidated = context =>
+                       {
+                           return Task.CompletedTask;
+                       }
+                   };
+               });
+
+         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -63,8 +97,11 @@ namespace SuperMarket.API
             }
 
             app.UseRouting();
-
-
+            app.UseStaticFiles();
+            app.UseCors();
+            app.UseAuthentication();
+            app.UseAuthorization();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

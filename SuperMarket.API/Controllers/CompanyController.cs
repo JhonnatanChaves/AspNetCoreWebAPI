@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SuperMarket.API.Domain.Services;
 using SuperMarket.API.Extensions;
@@ -14,6 +15,8 @@ using SuperMarket.API.Resource;
 namespace SuperMarket.API.Controllers
 {
     [Route("/api/[controller]")]
+    [Authorize()]
+
     public class CompanyController : Controller
     {
         private readonly ICompanyService _companyService;

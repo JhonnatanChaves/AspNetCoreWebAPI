@@ -28,3 +28,14 @@ C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFramew
 C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\C#\SuperMarket\SuperMarket.API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll

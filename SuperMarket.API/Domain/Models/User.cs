@@ -12,7 +12,6 @@ namespace SuperMarket.API.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public string Cpf { get; set; }
-
         public IList<Purchase> Purchases { get; set; } = new List<Purchase>();
 
     }

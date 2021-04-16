@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace SuperMarket.API.Resource
 {
-    public class SaveUserResource
+    public class AuthUserResource
     {
-        public int Id { get; set; }
-
-        [Required]
-        public string Name { get; set; }
         [Required]
         public string Email { get; set; }
+
+        [Required]
+        [MaxLength(10)]
+        public string Password { get; set; }
+
     }
 }

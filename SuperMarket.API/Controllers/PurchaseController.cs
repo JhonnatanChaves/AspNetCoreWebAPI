@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SuperMarket.API.Extensions;
@@ -13,6 +14,8 @@ using SuperMarket.API.Services;
 namespace SuperMarket.API.Controllers
 {
     [Route("/api/[controller]")]
+    [Authorize()]
+
     public class PurchaseController : Controller
     {
         private readonly IPurchaseService _purchaseService;
