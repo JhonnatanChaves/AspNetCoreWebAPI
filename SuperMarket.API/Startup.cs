@@ -37,6 +37,15 @@ namespace SuperMarket.API
 
          public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "MyPolicy",
+                                  builder =>
+                                  {
+                                      builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                                  });
+            });
+
             services.AddControllers();
 
             services.AddDbContext<SuperMarketContext>(options =>

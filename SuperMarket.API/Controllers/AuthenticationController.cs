@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using SuperMarket.API.Domain.Services;
@@ -16,6 +17,7 @@ using SuperMarket.API.Util;
 
 namespace SuperMarket.API.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Route("/api/[controller]")]
     [AllowAnonymous]
     public class AuthenticationController : ControllerBase
