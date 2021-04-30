@@ -20,6 +20,7 @@ namespace SuperMarket.API.Resource
         public float Value { get; set; }
 
         public string Observation { get; set; }
+        public EPaymentMethod FormOfPayment { get; set; }
 
         public Company Company { get; set; }
 

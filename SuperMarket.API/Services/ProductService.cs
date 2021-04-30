@@ -49,6 +49,7 @@ namespace SuperMarket.API.Services
 
             existingProduct.Name = product.Name;
             existingProduct.Description = product.Description;
+            existingProduct.FormOfPayment = product.FormOfPayment;
             existingProduct.Value = product.Value;
             existingProduct.Observation = product.Observation;
            

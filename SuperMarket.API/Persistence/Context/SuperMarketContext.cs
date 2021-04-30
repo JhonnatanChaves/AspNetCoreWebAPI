@@ -59,6 +59,7 @@ namespace SuperMarket.API.Data
             builder.Entity<Product>().Property(p => p.Name).IsRequired();
             builder.Entity<Product>().Property(p => p.Description).IsRequired();
             builder.Entity<Product>().Property(p => p.Value).IsRequired();
+            builder.Entity<Product>().Property(p => p.FormOfPayment).IsRequired();
             builder.Entity<Product>().Property(p => p.Observation);
 
             builder.Entity<Product>().HasMany(p => p.Purchases).WithOne(p => p.Product)
@@ -72,6 +73,7 @@ namespace SuperMarket.API.Data
                      Name = "Mini Compressor",
                      Description = "Mini Compressor Ar 300psi 12v P/ Pneu Carro Moto Bicicleta",
                      Value= 59,
+                     FormOfPayment = EPaymentMethod.CreditCard,
                      Observation= "ideal para proporcionar maior praticidade dia - a - dia!",
                      CompanyId=1
 
@@ -83,8 +85,6 @@ namespace SuperMarket.API.Data
             builder.Entity<Purchase>().Property(p => p.Id).IsRequired();
             builder.Entity<Purchase>().Property(p => p.Value);
             builder.Entity<Purchase>().Property(p => p.Date);
-            builder.Entity<Purchase>().Property(p => p.PaymentMethod);
-            builder.Entity<Purchase>().Property(p => p.PurchaseStatus);
             builder.Entity<Purchase>().Property(p => p.Observation);
             builder.Entity<Purchase>().Property(p => p.ZipCode);
             builder.Entity<Purchase>().Property(p => p.Address);
