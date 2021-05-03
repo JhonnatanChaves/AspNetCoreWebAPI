@@ -14,3 +14,5 @@ http://localhost:5000/api/company
  Nas rotas de purchase,product e company, não esqueça de estabelecer uma Key e Value no Headers.
  Em Key coloque Authorization e em Value coloque Bearer com o token que foi gerado.
  Exemplo para Value : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6(...).
+ 
+Devemos ter o banco SuperMarketDB criado no PostgreSQL🐘
