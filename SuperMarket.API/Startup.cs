@@ -37,6 +37,8 @@ namespace SuperMarket.API
 
          public void ConfigureServices(IServiceCollection services)
         {
+           
+
             services.AddCors(options =>
             {
                 options.AddPolicy(name: "MyPolicy",
@@ -48,10 +50,16 @@ namespace SuperMarket.API
 
             services.AddControllers();
 
-            services.AddDbContext<SuperMarketContext>(options =>
-            {
-                options.UseInMemoryDatabase("template-api-restful-memory");
-            });
+            services.AddDbContext<SuperMarketContext>
+                (
+                    opt => opt.UseNpgsql
+                    (
+                        Configuration.GetConnectionString("MyWebApiConection")
+                    )
+                );
+
+
+
 
             services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddScoped<ICompanyService, CompanyService>();

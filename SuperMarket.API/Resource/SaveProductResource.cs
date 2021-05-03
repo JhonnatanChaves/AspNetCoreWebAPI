@@ -9,7 +9,7 @@ namespace SuperMarket.API.Resource
 {
     public class SaveProductResource
     {
-
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
 
@@ -22,7 +22,7 @@ namespace SuperMarket.API.Resource
         public string Observation { get; set; }
         public EPaymentMethod FormOfPayment { get; set; }
 
-        public Company Company { get; set; }
+        public int CompanyId { get; set; }
 
 
 

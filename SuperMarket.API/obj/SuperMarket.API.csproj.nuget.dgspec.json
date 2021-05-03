@@ -18,15 +18,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -37,8 +37,8 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
@@ -46,31 +46,35 @@
             },
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[5.0.1, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[5.0.4, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[5.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[5.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[5.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[5.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[5.0.5, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
@@ -78,11 +82,15 @@
             },
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[12.0.3, )"
+              "version": "[13.0.1, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[5.0.5.1, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[6.10.2, )"
+              "version": "[6.11.0, )"
             }
           },
           "imports": [
