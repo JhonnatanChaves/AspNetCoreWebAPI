@@ -1,7 +1,7 @@
 # AspNetCoreWebAPI
 Projeto do Curso de Formação para Dev Full Stack
 
-Utilizei o EF Core 3.1
+Entity Framework Core 
 
 Para rodar a aplicação, basta que você navegue até a pasta SuperMarket.API, via terminal e digite "dotnet run" ou "dotnet watch run".
 Use um verificador de rotas, aqui usei o Postman com as rotas: 
