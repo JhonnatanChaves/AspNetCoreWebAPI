@@ -26,6 +26,16 @@ namespace SuperMarket.API.Domain.Services
             return await _companyRepository.ListAsync();
         }
 
+        public async Task<Company> FindByIdAsync(int id)
+        {
+            return await _companyRepository.FindByIdAsync(id);
+        }
+
+        public async Task<IEnumerable<Company>> FindByNameAsync(string name)
+        {
+            return await _companyRepository.FindByNameAsync(name);
+
+        }
         public async Task<CompanyResponse> SaveAsync(Company company)
         {
             try
