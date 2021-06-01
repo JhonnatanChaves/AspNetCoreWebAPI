@@ -25,6 +25,17 @@ namespace SuperMarket.API.Services
             return await _productRepository.ListAsync();
         }
 
+        public async Task<Product> FindByIdAsync(int id)
+        {
+            return await _productRepository.FindByIdAsync(id);
+        }
+
+        public async Task<IEnumerable<Product>> FindByNameAsync(string name)
+        {
+            return await _productRepository.FindByNameAsync(name);
+
+        }
+
         public async Task<ProductResponse> SaveAsync(Product product)
         {
             try

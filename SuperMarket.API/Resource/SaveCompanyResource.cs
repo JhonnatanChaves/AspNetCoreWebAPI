@@ -9,6 +9,10 @@ namespace SuperMarket.API.Resource
     public class SaveCompanyResource
     {
         [Required]
-        public String fancyName { get; set; }
+        public string FancyName { get; set; }
+        [Required]
+        public string SocialReason { get; set; }
+        [Required]
+        public string Cnpj { get; set; }
     }
 }

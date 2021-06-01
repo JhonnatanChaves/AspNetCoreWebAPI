@@ -8,11 +8,9 @@ namespace SuperMarket.API.Resource
 {
     public class CompanyResource
     {
-        public int Id { get; set; }
+        public int id { get; set; }
         [Required]
         public string FancyName { get; set; }
-       
-        [Required]
-        public string Observation { get; set; }
+        
     }
 }

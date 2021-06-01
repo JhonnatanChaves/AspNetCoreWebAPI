@@ -25,6 +25,12 @@ namespace SuperMarket.API.Persistence.Repositories
             return await _context.Products.Include(p => p.Company).ToListAsync();
         }
 
+        public async Task<IEnumerable<Product>> FindByNameAsync(string name)
+        {
+            return await _context.Products.Where(x => x.Name.Contains(name)).ToListAsync();
+
+        }
+
         public async Task<Product> FindByIdAsync(int id)
         {
             return await _context.Products.FindAsync(id);

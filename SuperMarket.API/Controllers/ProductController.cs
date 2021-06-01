@@ -40,6 +40,24 @@ namespace SuperMarket.API.Controllers
             return resources;
         }
 
+        [HttpGet("{id}")]
+        public async Task<ProductResource> GetByIdAsync(int id)
+        {
+            var product = await _productService.FindByIdAsync(id);
+            var resources = _mapper.Map<Product, ProductResource>(product);
+
+            return resources;
+        }
+
+        [HttpGet("GetByName/{name}")]
+        public async Task<IEnumerable<ProductResource>> GetByNameAsync(string name)
+        {
+            var product = await _productService.FindByNameAsync(name);
+            var resources = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductResource>>(product);
+
+            return resources;
+        }
+
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] SaveProductResource resource)
         {
