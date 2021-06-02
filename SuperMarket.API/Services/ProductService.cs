@@ -36,6 +36,12 @@ namespace SuperMarket.API.Services
 
         }
 
+        public async Task<IEnumerable<Product>> FindProductByCompanyAsync(string nameCompanhia)
+        {
+            return await _productRepository.FindProductByCompanyAsync(nameCompanhia);
+
+        }
+
         public async Task<ProductResponse> SaveAsync(Product product)
         {
             try

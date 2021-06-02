@@ -58,6 +58,18 @@ namespace SuperMarket.API.Controllers
             return resources;
         }
 
+
+        [HttpGet("GetProductByCompany/{nameCompany}")]
+        public async Task<IEnumerable<ProductResource>> GetProductByCompanyAsync(string nameCompany)
+        {
+            var product = await _productService.FindProductByCompanyAsync(nameCompany);
+            var resources = _mapper.Map<IEnumerable<Product>, IEnumerable<ProductResource>>(product);
+
+            return resources;
+        }
+
+
+
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] SaveProductResource resource)
         {
